@@ -1,4 +1,7 @@
+import { Grid, Paper } from "@mui/material";
 import React, { useEffect, useState } from "react"
+import { numberLine } from "./Analyze";
+
 import * as api from './api'
 
 
@@ -6,18 +9,52 @@ const Dashboard = () => {
 
   const [timestamps, setTimestamps] = useState([]);
 
+  const [lineChartData, setLineChartData] = useState([]);
+  const [barChartData, setBarChartData] = useState([]);
+  const [pieChartData, setPieChartData] = useState([]);
+  const [numDays, setNumDays] = useState(7);
+
+
   useEffect(() => {
     console.log("running use effect")
     api.getData(setTimestamps);
+    api.getBarChartData(numDays,setBarChartData);
+    api.getLineChartData(numDays,setLineChartData);
+    api.getPieChartData(numDays,setPieChartData);
   }, [])
 
   useEffect(() => {
-    console.log(timestamps)
+    numberLine(timestamps);
   }, [timestamps])
 
   return (
     <div>
-    { timestamps.map((stamp, index) => {return <h3>{index} : {stamp.timestamp} </h3>;}) }
+      <Grid container direction="row" justifyContent="space-evenly" alignItems="center">
+        <Grid item lg={6}>
+          <Paper>
+            <center>
+              <table>
+                <tr>
+                  <th>
+                    UUID
+                  </th>
+                  <th>
+                    Time
+                  </th>
+                </tr>
+                {timestamps.map((stamp) => {
+                  return (
+                    <tr>
+                      <td>{stamp.id}</td>
+                      <td>{stamp.timestamp}</td>
+                    </tr>
+                  )
+                })}
+              </table>
+            </center>
+          </Paper>
+        </Grid>
+      </Grid>
     </div>
   );
 
