@@ -1,8 +1,8 @@
 import { Grid, Paper } from "@mui/material";
 import React, { useEffect, useState } from "react"
-import { numberLine } from "./Analyze";
+import { numberLine } from "./service/Analyze";
 
-import * as api from './api'
+import * as api from './service/api'
 
 
 const Dashboard = () => {
