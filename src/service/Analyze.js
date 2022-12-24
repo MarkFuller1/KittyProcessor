@@ -16,16 +16,15 @@ export const numberLine = (timestamps) => {
 
   const lowest = parsed[0];
 
-  console.log(lowest)
+  // console.log(lowest)
 
   parsed.forEach(msEpoch => {
 
-    console.log(msEpoch, lowest, msEpoch - lowest)
 
     shifted.push(msEpoch - lowest);
     
   });
 
-  console.log(shifted);
+  // console.log(shifted);
 
 }

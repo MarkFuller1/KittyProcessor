@@ -21,7 +21,9 @@ export const getPieChartData = (lastNDays, setPieChartData) => {
 }
 
 export const getBarChartData = (lastNDays, setBarChartData) => {
-  axios.get(backendURL + "/bar" + "?nDays=" + lastNDays)
+  const path = backendURL + "/lastWeek/bar" + "?nDays=" + lastNDays
+  console.log("getting bar chart:" + path)
+  axios.get(path)
     .then(response => {
       return response.data
     })
