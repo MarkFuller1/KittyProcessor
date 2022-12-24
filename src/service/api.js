@@ -12,7 +12,7 @@ export const getData = (setTimestamps) => {
 }
 
 export const getPieChartData = (lastNDays, setPieChartData) => {
-  axios.get(backendURL + "/pie" + "?nDays=" + lastNDays)
+  axios.get(backendURL + "/pie?nDays=" + lastNDays)
     .then(response => {
       return response.data
     })
@@ -21,7 +21,7 @@ export const getPieChartData = (lastNDays, setPieChartData) => {
 }
 
 export const getBarChartData = (lastNDays, setBarChartData) => {
-  const path = backendURL + "/lastWeek/bar" + "?nDays=" + lastNDays
+  const path = backendURL + "/lastWeek/bar?nDays=" + lastNDays
   console.log("getting bar chart:" + path)
   axios.get(path)
     .then(response => {
@@ -32,7 +32,7 @@ export const getBarChartData = (lastNDays, setBarChartData) => {
 }
 
 export const getLineChartData = (lastNDays, setLineChartData) => {
-  axios.get(backendURL + "/line" + "?nDays=" + lastNDays)
+  axios.get(backendURL + "/line?nDays=" + lastNDays)
     .then(response => {
       return response.data
     })

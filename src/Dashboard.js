@@ -14,7 +14,8 @@ const Dashboard = () => {
   const [barChartData, setBarChartData] = useState([]);
   // const [lineChartData, setLineChartData] = useState([]);
   // const [pieChartData, setPieChartData] = useState([]);
-  const [numDays, setNumDays] = useState(7);
+  // const [numDays, setNumDays] = useState(7);
+  const numDays = 7;
 
 
   useEffect(() => {
