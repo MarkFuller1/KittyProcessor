@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react"
 import Bar from "./charts/Bar";
 import Records from "./charts/Records";
@@ -9,14 +9,14 @@ import { numberLine } from "./service/Analyze";
 
 import * as api from './service/api'
 
-const parse = (stringDate) => {
+// const parse = (stringDate) => {
 
-  const date = new Date(Date.parse(stringDate));
+//   const date = new Date(Date.parse(stringDate));
 
-  const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//   const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-  return dayOfWeek[date.getDay()];
-}
+//   return dayOfWeek[date.getDay()];
+// }
 
 
 
@@ -51,33 +51,33 @@ const Dashboard = () => {
   }, [timestamps])
 
   return (
-    <div style={{width:"100%", height:"100vh"}}>
-      <Grid container direction="row" justifyContent="center" alignItems="center" style={{width:"100vw", height:"100vh"}}>
+    <div style={{ width: "100%", height: "100vh" }}>
+      <Grid container direction="row" justifyContent="center" alignItems="center" style={{ width: "100vw", height: "100vh" }}>
         {/* <Grid item lg={12}> */}
-          {/* <Paper> */}
-          {/*   <center> */}
-          {/*     <table> */}
-          {/*       <thead> */}
-          {/*         <tr> */}
-          {/*           <th> */}
-          {/*             Time */}
-          {/*           </th> */}
-          {/*         </tr> */}
-          {/*       </thead> */}
-          {/*       <tbody> */}
-          {/*         {timestamps.map((stamp) => { */}
-          {/*           return ( */}
-          {/*             <tr key={stamp.id}> */}
-          {/*               <td>{parse(stamp.timestamp)}</td> */}
-          {/*             </tr> */}
-          {/*           ) */}
-          {/*         })} */}
-          {/*       </tbody> */}
-          {/*     </table> */}
-          {/*   </center> */}
-          {/* </Paper> */}
+        {/* <Paper> */}
+        {/*   <center> */}
+        {/*     <table> */}
+        {/*       <thead> */}
+        {/*         <tr> */}
+        {/*           <th> */}
+        {/*             Time */}
+        {/*           </th> */}
+        {/*         </tr> */}
+        {/*       </thead> */}
+        {/*       <tbody> */}
+        {/*         {timestamps.map((stamp) => { */}
+        {/*           return ( */}
+        {/*             <tr key={stamp.id}> */}
+        {/*               <td>{parse(stamp.timestamp)}</td> */}
+        {/*             </tr> */}
+        {/*           ) */}
+        {/*         })} */}
+        {/*       </tbody> */}
+        {/*     </table> */}
+        {/*   </center> */}
+        {/* </Paper> */}
         <Grid item xs={12} lg={6} >
-        {/* </Grid> */}
+          {/* </Grid> */}
           <Records recordData={recordData} />
         </Grid>
         <Grid item xs={12} lg={6}>
