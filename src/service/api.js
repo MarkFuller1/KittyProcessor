@@ -40,5 +40,35 @@ export const getLineChartData = (lastNDays, setLineChartData) => {
     .catch(error => console.log(error));
 }
 
+export const getRecords = (setRecords) => {
+  const path = backendURL + "/records";
+  console.log("getting records:" + path)
+  axios.get(path)
+    .then(response => {
+      return response.data
+    })
+    .then(data => setRecords(data))
+    .catch(error => console.log(error));
+}
 
 
+export const mostRecent = (setMostRecent) => {
+  const path = backendURL + "/mostRecent";
+  console.log("getting most recent:" + path)
+  axios.get(path)
+    .then(response => {
+      return response.data
+    })
+    .then(data => setMostRecent(data))
+    .catch(error => console.log(error));
+}
+export const lastDayEventCount = (setLastDayEventCount) => {
+  const path = backendURL + "/lastDayEventCount";
+  console.log("getting last day event count:" + path)
+  axios.get(path)
+    .then(response => {
+      return response.data
+    })
+    .then(data => setLastDayEventCount(data))
+    .catch(error => console.log(error));
+}

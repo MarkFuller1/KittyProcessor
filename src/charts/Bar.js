@@ -23,6 +23,7 @@ const DurationBar = ({ barChartData }) => {
   })
 
   return (<>
+    <center>
     <BarChart width={730} height={250} data={processedData}>
       <CartesianGrid strokeDasharray={"3 3"} />
       <XAxis dataKey="name" />
@@ -31,6 +32,7 @@ const DurationBar = ({ barChartData }) => {
       <Legend />
       <Bar dataKey="duration" fill="#8884d8" />
     </BarChart>
+    </center>
 
   </>);
 }
