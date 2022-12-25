@@ -1,4 +1,5 @@
 import React from 'react'
+import {format} from '../service/util'
 
 const Records = ({ recordData }) => {
   if (recordData.length !== 2) {
@@ -13,7 +14,8 @@ const Records = ({ recordData }) => {
 
     const duration = new Date(Date.parse(end)) - new Date(Date.parse(start));
 
-    return Math.floor(duration / 1000) + " seconds"
+    return format(duration);
+
   }
 
   const shortestEventData = parseEventData(recordData[0]);
