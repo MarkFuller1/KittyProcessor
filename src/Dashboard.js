@@ -9,17 +9,6 @@ import { numberLine } from "./service/Analyze";
 
 import * as api from './service/api'
 
-// const parse = (stringDate) => {
-
-//   const date = new Date(Date.parse(stringDate));
-
-//   const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-//   return dayOfWeek[date.getDay()];
-// }
-
-
-
 const Dashboard = () => {
 
   // comment
@@ -53,29 +42,6 @@ const Dashboard = () => {
   return (
     <div style={{ width: "100%", height: "100vh" }}>
       <Grid container direction="row" justifyContent="center" alignItems="center" style={{ width: "100vw", height: "100vh" }}>
-        {/* <Grid item lg={12}> */}
-        {/* <Paper> */}
-        {/*   <center> */}
-        {/*     <table> */}
-        {/*       <thead> */}
-        {/*         <tr> */}
-        {/*           <th> */}
-        {/*             Time */}
-        {/*           </th> */}
-        {/*         </tr> */}
-        {/*       </thead> */}
-        {/*       <tbody> */}
-        {/*         {timestamps.map((stamp) => { */}
-        {/*           return ( */}
-        {/*             <tr key={stamp.id}> */}
-        {/*               <td>{parse(stamp.timestamp)}</td> */}
-        {/*             </tr> */}
-        {/*           ) */}
-        {/*         })} */}
-        {/*       </tbody> */}
-        {/*     </table> */}
-        {/*   </center> */}
-        {/* </Paper> */}
         <Grid item xs={12} lg={6} >
           {/* </Grid> */}
           <Records recordData={recordData} />
