@@ -20,6 +20,21 @@ const round = (num) => {
   return Math.round(num * 10) / 10
 }
 
+const getGraphDimensions = () => {
+  const sw = window.innerWidth
+
+  console.log(sw)
+
+  const cutoff = 850;
+
+  if(sw < cutoff){
+    return {width: sw * 0.75 , height: sw / 3.04};
+  }
+
+  return {width:cutoff, height: cutoff/ 3.04}
+
+}
+
 const DurationBar = ({ barChartData }) => {
   const processedData = barChartData?.barGroup?.map(group => {
     return {
@@ -28,11 +43,13 @@ const DurationBar = ({ barChartData }) => {
     }
   })
 
-  processedData?.sort((a,b) => Date.parse(a.name) < Date.parse(b.name) ? -1 : 1)
+  
+
+  processedData?.sort((a, b) => Date.parse(a.name) < Date.parse(b.name) ? -1 : 1)
 
   return (<>
     <center>
-      <BarChart width={730} height={250} data={processedData}>
+      <BarChart width={getGraphDimensions().width} height={getGraphDimensions().height} data={processedData}>
         <CartesianGrid strokeDasharray={"3 3"} />
         <XAxis dataKey="name" tickFormatter={(data) => {
           return new Date(Date.parse(data)).toLocaleDateString('en-us',
@@ -43,8 +60,11 @@ const DurationBar = ({ barChartData }) => {
             }
           )
         }} />
-        <YAxis/>
-        <Tooltip labelFormatter={(a) => {return new Date(Date.parse(a)).toLocaleTimeString('en-us')} } />
+        <YAxis width={10}/>
+        <Tooltip labelFormatter={(a) => {
+          return new Date(Date.parse(a)).toLocaleTimeString('en-us')
+        }
+        } />
         <Legend />
         <Bar dataKey="duration" fill="#8884d8" />
       </BarChart>
